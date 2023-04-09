@@ -21,9 +21,26 @@
 //  2- The first letters of the firstName and lastName should be capital letter
 
 const objLat = (obj) => {
-    fName=obj.firstName[0].toUpperCase()+obj.firstName
-    obj.firstName
-    return `my name is ${obj.firstName} ${obj.lastName} I am ${obj.age} YO, and I love ${obj.hobby}.`
+    let m='';
+    let m1='';
+    if(obj.firstName[0] != obj.firstName[0].toUpperCase()){
+        m +=obj.firstName[0].toUpperCase();
+        for (let i=1;i<(obj.firstName).length;i++)
+        {
+            m +=obj.firstName[i]
+        }
+    }else {m=obj.firstName;}
+    if(obj.lastName[0] != obj.lastName[0].toUpperCase()){
+        m1 +=obj.lastName[0].toUpperCase();
+        for (let i=1;i<(obj.lastName).length;i++)
+        {
+            m1 +=obj.lastName[i]
+        }
+    }else {m1=obj.lastName;}
+    
+    
+   
+    return `my name is ${m} ${m1} I am ${obj.age} YO, and I love ${obj.hobby}.`
 };
 // -------------------------------------------------------------------------------------------------------
 
@@ -134,6 +151,43 @@ const cvFormatter = (arr) => {
 
 const applicationsStatics = (arr) => {
     // write your code here
+    let res={};
+    let python=0;
+    let javaScript=0;   
+    let dotNet=0;
+    let java=0;
+    let total=0;
+    let reject=0;
+    for (let i=0;i<arr.length;i++){
+        total++;
+        if (arr[i].yearsOfExperience<2 || (arr[i].firstName == null && arr[i].lastName == null) )
+        {
+            reject++;
+            continue;
+        }else{
+        switch(arr[i].tech){
+            case 'JS':
+            javaScript++;
+            break;
+            case '.Net':
+            dotNet++;
+            break;
+            case 'Python':
+            python++;
+            break;
+            case 'Java':
+            java++;
+            break;
+                        }
+             }
+    }
+    res.python_devs=python;
+    res.javaScript_devs=javaScript;
+    res.dotNet_devs=dotNet;
+    res.java_devs=java;
+    res.totalApplicants=total;
+    res.rejectedApplicants=reject;
+    return res;
 };
 // -------------------------------------------------------------------------------------------------------
 
@@ -260,7 +314,22 @@ let data = {
 //  2- You need to round the average to the nearest lower number 
 
 const classesAvg = (data) => {
-    // write your code here
+    let sum=0;
+for (let i=0;i<data.grades.length;i++){
+
+  for (let j=0;j<data.grades[i].classes.length;j++)
+  {
+    for (let k=0;k<(data.grades[i].classes[j].classScores).length;k++)
+    {
+    
+      sum += data.grades[i].classes[j].classScores[k];
+      
+    }
+    data.grades[i].classes[j].avg=Math.floor(sum/data.grades[i].classes[j].classScores.length);
+    sum=0;
+  }
+}
+return data;
 };
 // -------------------------------------------------------------------------------------------------------
 
