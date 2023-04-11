@@ -122,6 +122,7 @@ const cvFormatter = (arr) => {
         arr1[i-count]={};
         arr1[i-count]['fullName']=fName;
         arr1[i-count]['tech']=arr[i].tech;
+        arr1[0]['tech']=arr[i].tech;
     }
     console.log(arr1);
     return arr1;
@@ -314,23 +315,24 @@ let data = {
 //  2- You need to round the average to the nearest lower number 
 
 const classesAvg = (data) => {
-    let sum=0;
-for (let i=0;i<data.grades.length;i++){
-
-  for (let j=0;j<data.grades[i].classes.length;j++)
-  {
-    for (let k=0;k<(data.grades[i].classes[j].classScores).length;k++)
-    {
-    
-      sum += data.grades[i].classes[j].classScores[k];
-      
-    }
-    data.grades[i].classes[j].avg=Math.floor(sum/data.grades[i].classes[j].classScores.length);
-    sum=0;
-  }
-}
-return data;
-};
+   let sum=0;
+    let avg=0.0;
+    let counter=0;
+     for(let i=0;i<data.grades.length;i++){
+        
+         for(let j=0;j<data.grades[i].classes.length;j++){
+             for(let m=0;m<(data.grades[i].classes[j].classScores).length;m++){
+                sum=sum + data.grades[i].classes[j].classScores[m];
+                counter++;
+             }
+             avg=sum/counter;
+             data.grades[i].classes[j]['avg']=Math.floor(avg);
+             sum=0;
+             counter=0
+         }
+     }
+     return data;
+  };
 // -------------------------------------------------------------------------------------------------------
 
 module.exports = { objLat, cvFormatter, applicationsStatics, classesAvg };
