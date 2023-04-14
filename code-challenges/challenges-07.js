@@ -122,7 +122,7 @@ const cvFormatter = (arr) => {
         arr1[i-count]={};
         arr1[i-count]['fullName']=fName;
         arr1[i-count]['tech']=arr[i].tech;
-        arr1[0]['tech']=arr[i].tech;
+        arr1[i-count]['tech']=arr[i].tech;
     }
     console.log(arr1);
     return arr1;
