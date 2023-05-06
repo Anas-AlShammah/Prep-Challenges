@@ -1,0 +1,67 @@
+{
+    "cells": [
+        {
+            "language": "markdown",
+            "source": [
+                "## Hacker Rank\n\nFor Thursdays you will be solving some selected challenges on HackerRank, please create an account if you don't have then\nFollow the links below:\nread them carefully and solve them then copy-paste your solution below in Code Block"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "### **Required**:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "#####  [Equality In An Array](https://www.hackerrank.com/challenges/equality-in-a-array/problem?isFullScreen=true)\n\nSolution:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "function equalizeArray(arr) {\n  \n\tlet max=0\n\tlet count=0;\n\t\n\tfor (let i=0;i<arr.length-1;i++)\n\t{\n\t\t\tcount=0\n\t\t\tfor (let j=i+1;j<arr.length;j++){\n\t\t\t\t\tif (arr[i]==arr[j]){\n\t\t\t\t\t\t\tcount++;\n\t\t\t\t\t}\n\t\t\t}\n\t\t\tif (count > max){\n\t\t\t\t\tmax=count;\n\t\t\t}\n\t}\n\t\n\treturn arr.length-max-1;\n\t\n\t}"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "### **Optional**:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "#####  [Halloween Sale](https://www.hackerrank.com/challenges/halloween-sale/problem?isFullScreen=true)\n\nSolution:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "function howManyGames(p, d, m, s) {\n\tlet count=0;\n\twhile (s-m>=0){\n\t\t\ts -=p;\n\t\t\tif (s>=0){\n\t\t\t\t\tcount++;\n\t\t\t}\n\t\t\tp-=d;\n\t\t\tif (p<m){\n\t\t\t\t\tp=m;\n\t\t\t}\n\t}\n return count;\n }\n "
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "#####  [Sherlock And Squares](https://www.hackerrank.com/challenges/sherlock-and-squares/problem?isFullScreen=true)\n\nSolution:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "\nfunction squares(a, b) {\n\tlet count=0\n\tlet seq;\n\tlet num;\n\ta=Math.sqrt(a);\n\ta=Math.ceil(a);\n\tb=Math.sqrt(b);\n\tb=Math.floor(b);\n\tfor (let i=a;i<=b;i++){ \n\t\t\t\t\tcount++; \n\t}\nreturn count;\n}\n"
+            ],
+            "outputs": []
+        }
+    ]
+}
